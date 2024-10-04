@@ -135,3 +135,13 @@ keymap.set("n", "<leader>cs", "<cmd>Trouble symbols toggle focus=false<cr>", { d
 keymap.set("n", "<leader>cl", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", { desc = "LSP Definitions / references / ... (Trouble)" })
 keymap.set("n", "<leader>xL", "<cmd>Trouble loclist toggle<cr>", { desc = "Location List (Trouble)" })
 keymap.set("n", "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", { desc = "Quickfix List (Trouble)" })
+
+-- vim-fugitive
+keymap.set("n", "<leader>gb", ":Git blame<cr>", { desc = "[G]it [B]lame" })
+keymap.set("n", "<leader>gA", ":Git add .<cr>", { desc = "[G]it Add [A]ll" })
+keymap.set("n", "<leader>ga", ":Git add<cr>", { desc = "[G]it [A]dd" })
+keymap.set("n", "<leader>gc", ":Git commit<cr>", { desc = "[G]it [C]ommit" })
+keymap.set("n", "<leader>gp", ":Git push<cr>", { desc = "[G]it [P]ush" })
+
+-- gitsigns.nvim
+keymap.set("n", "<leader>gh", ":Gitsigns preview_hunk<CR>", { desc = "[G]it Preview [H]unk" })
