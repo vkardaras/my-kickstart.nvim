@@ -31,12 +31,15 @@ keymap.set("n", "<leader>to", ":tabnew<CR>") -- open a new tab
 keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close a tab
 keymap.set("n", "<leader>tn", ":tabn<CR>") -- next tab
 keymap.set("n", "<leader>tp", ":tabp<CR>") -- previous tab
+keymap.set("n", "<leader>T", "<C-w>T") -- open pane in tab
 
 -- Buffer management
 keymap.set("n", "<leader>ls", ":ls<CR>") -- list buffers
 keymap.set("n", "<leader>bn", ":bn<CR>") -- next buffer
 keymap.set("n", "<leader>bp", ":bp<CR>") -- previous buffer
 keymap.set("n", "<leader>bd", ":bd<CR>") -- close buffer
+keymap.set("n", "<leader>H", "<C-w>H") -- swap windows left
+keymap.set("n", "<leader>L", "<C-w>L") -- swap windows right
 
 -- Diff keymaps
 keymap.set("n", "<leader>cc", ":diffput<CR>") -- put diff from current to other during diff
@@ -90,7 +93,7 @@ keymap.set('n', '<leader>gs', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
 keymap.set('n', '<leader>rr', '<cmd>lua vim.lsp.buf.rename()<CR>')
 keymap.set('n', '<leader>gf', '<cmd>lua vim.lsp.buf.format({async = true})<CR>')
 keymap.set('v', '<leader>gf', '<cmd>lua vim.lsp.buf.format({async = true})<CR>')
-keymap.set('n', '<leader>ga', '<cmd>lua vim.lsp.buf.code_action()<CR>')
+keymap.set('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>')
 keymap.set('n', '<leader>gl', '<cmd>lua vim.diagnostic.open_float()<CR>')
 keymap.set('n', '<leader>gp', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
 keymap.set('n', '<leader>gn', '<cmd>lua vim.diagnostic.goto_next()<CR>')
@@ -137,11 +140,14 @@ keymap.set("n", "<leader>xL", "<cmd>Trouble loclist toggle<cr>", { desc = "Locat
 keymap.set("n", "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", { desc = "Quickfix List (Trouble)" })
 
 -- vim-fugitive
-keymap.set("n", "<leader>gb", ":Git blame<cr>", { desc = "[G]it [B]lame" })
+-- keymap.set("n", "<leader>gb", ":Git blame<cr>", { desc = "[G]it [B]lame" })
 keymap.set("n", "<leader>gA", ":Git add .<cr>", { desc = "[G]it Add [A]ll" })
 keymap.set("n", "<leader>ga", ":Git add<cr>", { desc = "[G]it [A]dd" })
 keymap.set("n", "<leader>gc", ":Git commit<cr>", { desc = "[G]it [C]ommit" })
-keymap.set("n", "<leader>gp", ":Git push<cr>", { desc = "[G]it [P]ush" })
+-- keymap.set("n", "<leader>gp", ":Git push<cr>", { desc = "[G]it [P]ush" })
 
 -- gitsigns.nvim
 keymap.set("n", "<leader>gh", ":Gitsigns preview_hunk<CR>", { desc = "[G]it Preview [H]unk" })
+
+-- none-ls.nvim
+keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = "[G]it Preview [H]unk" })
