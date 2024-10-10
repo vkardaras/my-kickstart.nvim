@@ -14,5 +14,13 @@ return {
                 path = "~/Documents/MyVault",
             },
         },
+        templates = {
+            folder = "_templates",
+            date_format = "%Y-%m-%d-%a",
+            time_format = "%H:%M",
+        },
+        note_id_func = function(title)
+            return title
+        end,
     },
 }
