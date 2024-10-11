@@ -14,6 +14,7 @@ return {
                 path = "~/Documents/MyVault",
             },
         },
+        ui = { enable = false },
         templates = {
             folder = "_templates",
             date_format = "%Y-%m-%d-%a",
