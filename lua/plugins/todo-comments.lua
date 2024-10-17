@@ -1,10 +1,11 @@
 return {
-    -- https://github.com/folke/todo-comments.nvim
+    -- TODO: add better comments
+    -- WARN: this is a warning
+    -- BUG: this is a bug
     "folke/todo-comments.nvim",
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = { "nvim-lua/plenary.nvim" },
-    opts = {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-    }
+    config = function()
+        require('todo-comments').setup()
+    end
 }

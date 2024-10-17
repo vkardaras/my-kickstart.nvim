@@ -1,25 +1,45 @@
--- Code Tree Support / Syntax Highlighting
 return {
-  -- https://github.com/nvim-treesitter/nvim-treesitter
-  'nvim-treesitter/nvim-treesitter',
-  event = 'VeryLazy',
-  dependencies = {
-    -- https://github.com/nvim-treesitter/nvim-treesitter-textobjects
-    'nvim-treesitter/nvim-treesitter-textobjects',
-  },
-  build = ':TSUpdate',
-  opts = {
-    highlight = {
-      enable = true,
+    'nvim-treesitter/nvim-treesitter',
+    event = { "BufReadPre", "BufNewFile" },
+    build = ':TSUpdate',
+    dependencies = {
+        'nvim-treesitter/nvim-treesitter-textobjects',
+        'windwp/nvim-ts-autotag'
     },
-    indent = { enable = true },
-    auto_install = true, -- automatically install syntax support when entering new file type buffer
-    ensure_installed = {
-      'lua',
+    opts = {
+        highlight = {
+            enable = true,
+        },
+        indent = { enable = true },
+        auto_install = true, -- automatically install syntax support when entering new file type buffer
+        autotag = {
+            enable = true,
+        },
+        ensure_installed = {
+            "json",
+            "javascript",
+            "typescript",
+            "tsx",
+            "yaml",
+            "html",
+            "css",
+            "prisma",
+            "markdown",
+            "markdown_inline",
+            "svelte",
+            "graphql",
+            "bash",
+            "lua",
+            "vim",
+            "dockerfile",
+            "gitignore",
+            "query",
+            "vimdoc",
+            "c",
+        },
     },
-  },
-  config = function (_, opts)
-    local configs = require("nvim-treesitter.configs")
-    configs.setup(opts)
-  end
+    config = function (_, opts)
+        local configs = require("nvim-treesitter.configs")
+        configs.setup(opts)
+    end
 }
