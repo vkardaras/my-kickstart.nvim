@@ -187,16 +187,3 @@ keymap.set({ "n", "v" }, "<leader>mp", function()
 		timeout_ms = 1000,
 	})
 end, { desc = "Format file or range (in visual mode)" })
-
--- vim-fugitive
--- keymap.set("n", "<leader>gb", ":Git blame<cr>", { desc = "[G]it [B]lame" })
-keymap.set("n", "<leader>gA", ":Git add .<cr>", { desc = "[G]it Add [A]ll" })
-keymap.set("n", "<leader>ga", ":Git add<cr>", { desc = "[G]it [A]dd" })
-keymap.set("n", "<leader>gc", ":Git commit<cr>", { desc = "[G]it [C]ommit" })
--- keymap.set("n", "<leader>gp", ":Git push<cr>", { desc = "[G]it [P]ush" })
-
--- gitsigns.nvim
-keymap.set("n", "<leader>gh", ":Gitsigns preview_hunk<CR>", { desc = "[G]it Preview [H]unk" })
-
--- none-ls.nvim
-keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = "[G]it Preview [H]unk" })
