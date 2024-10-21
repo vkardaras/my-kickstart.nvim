@@ -1,3 +1,6 @@
+-- Set leader key to space
+vim.g.mapleader = " "
+
 local opt = vim.opt
 
 -- Left column and similar settings

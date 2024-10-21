@@ -1,6 +1,3 @@
--- Set leader key to space
-vim.g.mapleader = " "
-
 local keymap = vim.keymap
 
 -- General keymaps
@@ -10,8 +7,8 @@ keymap.set("n", "<leader>ww", ":w<CR>") -- save
 keymap.set("n", "gx", ":!open <c-r><c-a><CR>") -- open URL under cursor
 
 -- Split window management
-keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
-keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
+keymap.set("n", "<leader>v", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
+keymap.set("n", "<leader>h", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
 keymap.set("n", "<leader>se", "<C-w>=") -- make split windows equal width
 keymap.set("n", "<leader>sx", ":close<CR>") -- close split window
 -- keymap.set("n", "<leader>sj", "<C-w>-") -- make split window height shorter
@@ -67,18 +64,42 @@ keymap.set("n", "<leader>wr", "<cmd>SessionRestore<CR>", { desc = "Restore sessi
 keymap.set("n", "<leader>ws", "<cmd>SessionSave<CR>", { desc = "Save session for auto session root dir" }) -- save workspace session for current working directory
 
 -- Telescope
-keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, { desc = "Fuzzy find files in cwd" })
-keymap.set("n", "<leader>fg", require("telescope.builtin").live_grep, { desc = "Find string in cwd" })
-keymap.set("n", "<leader>fb", require("telescope.builtin").buffers, {})
-keymap.set("n", "<leader>fh", require("telescope.builtin").help_tags, {})
-keymap.set("n", "<leader>fs", require("telescope.builtin").current_buffer_fuzzy_find, {})
-keymap.set("n", "<leader>fo", require("telescope.builtin").lsp_document_symbols, {})
-keymap.set("n", "<leader>fi", require("telescope.builtin").lsp_incoming_calls, {})
-keymap.set("n", "<leader>fw", require("telescope.builtin").grep_string, { desc = "Find string under cursor in cwd" })
-keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
-keymap.set("n", "<leader>fm", function()
+keymap.set("n", "<leader>sf", require("telescope.builtin").find_files, { desc = "Fuzzy find files in cwd" })
+keymap.set("n", "<leader>sg", require("telescope.builtin").live_grep, { desc = "Find string in cwd" })
+keymap.set("n", "<leader>sb", require("telescope.builtin").buffers, {})
+keymap.set("n", "<leader>sh", require("telescope.builtin").help_tags, {})
+keymap.set("n", "<leader>ss", require("telescope.builtin").current_buffer_fuzzy_find, {})
+keymap.set("n", "<leader>so", require("telescope.builtin").lsp_document_symbols, {})
+keymap.set("n", "<leader>si", require("telescope.builtin").lsp_incoming_calls, {})
+keymap.set("n", "<leader>sw", require("telescope.builtin").grep_string, { desc = "Find string under cursor in cwd" })
+keymap.set("n", "<leader>sk", require("telescope.builtin").keymaps, { desc = "[S]earch [K]eymaps" })
+keymap.set("n", "<leader>ss", require("telescope.builtin").builtin, { desc = "[F]ind [S]elect Telescope" })
+keymap.set("n", "<leader>s.", require("telescope.builtin").oldfiles, { desc = "[F]ind Recent Files ('.' for repeat)" })
+keymap.set("n", "<leader>st", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
+keymap.set("n", "<leader>sm", function()
 	require("telescope.builtin").treesitter({ default_text = ":method:" })
 end)
+-- Slightly advanced example of overriding default behavior and theme
+-- keymap.set("n", "<leader>/", function()
+-- 	-- You can pass additional configuration to Telescope to change the theme, layout, etc.
+-- 	require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+-- 		winblend = 10,
+-- 		previewer = false,
+-- 	}))
+-- end, { desc = "[/] Fuzzily search in current buffer" })
+-- It's also possible to pass additional configuration options.
+--  See `:help telescope.builtin.live_grep()` for information about particular keys
+keymap.set("n", "<leader>s/", function()
+	require("telescope.builtin").live_grep({
+		grep_open_files = true,
+		prompt_title = "Live Grep in Open Files",
+	})
+end, { desc = "[S]earch [/] in Open Files" })
+
+-- Shortcut for searching your Neovim configuration files
+keymap.set("n", "<leader>sn", function()
+	-- require("telescope.builtin").find_files({ cwd = vim.fn.stdpath("config") })
+end, { desc = "[S]earch [N]eovim files" })
 
 -- Comment
 keymap.set("n", "<leader>/", "<Plug>(comment_toggle_linewise_current)", {}) -- comment the line under the cursor in normal mode
