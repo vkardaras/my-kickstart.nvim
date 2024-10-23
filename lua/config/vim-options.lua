@@ -1,5 +1,6 @@
 -- Set leader key to space
 vim.g.mapleader = " "
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 local opt = vim.opt
 

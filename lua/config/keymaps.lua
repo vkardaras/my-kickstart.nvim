@@ -64,19 +64,19 @@ keymap.set("n", "<leader>wr", "<cmd>SessionRestore<CR>", { desc = "Restore sessi
 keymap.set("n", "<leader>ws", "<cmd>SessionSave<CR>", { desc = "Save session for auto session root dir" }) -- save workspace session for current working directory
 
 -- Telescope
-keymap.set("n", "<leader>sf", require("telescope.builtin").find_files, { desc = "Fuzzy find files in cwd" })
-keymap.set("n", "<leader>sg", require("telescope.builtin").live_grep, { desc = "Find string in cwd" })
-keymap.set("n", "<leader>sb", require("telescope.builtin").buffers, {})
-keymap.set("n", "<leader>sh", require("telescope.builtin").help_tags, {})
-keymap.set("n", "<leader>ss", require("telescope.builtin").current_buffer_fuzzy_find, {})
-keymap.set("n", "<leader>so", require("telescope.builtin").lsp_document_symbols, {})
-keymap.set("n", "<leader>si", require("telescope.builtin").lsp_incoming_calls, {})
-keymap.set("n", "<leader>sw", require("telescope.builtin").grep_string, { desc = "Find string under cursor in cwd" })
-keymap.set("n", "<leader>sk", require("telescope.builtin").keymaps, { desc = "[S]earch [K]eymaps" })
-keymap.set("n", "<leader>ss", require("telescope.builtin").builtin, { desc = "[F]ind [S]elect Telescope" })
-keymap.set("n", "<leader>s.", require("telescope.builtin").oldfiles, { desc = "[F]ind Recent Files ('.' for repeat)" })
-keymap.set("n", "<leader>st", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
-keymap.set("n", "<leader>sm", function()
+keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, { desc = "Fuzzy find files in cwd" })
+keymap.set("n", "<leader>fg", require("telescope.builtin").live_grep, { desc = "Find string in cwd" })
+keymap.set("n", "<leader>fb", require("telescope.builtin").buffers, {})
+keymap.set("n", "<leader>fh", require("telescope.builtin").help_tags, {})
+keymap.set("n", "<leader>fc", require("telescope.builtin").current_buffer_fuzzy_find, {})
+keymap.set("n", "<leader>fo", require("telescope.builtin").lsp_document_symbols, {})
+keymap.set("n", "<leader>fi", require("telescope.builtin").lsp_incoming_calls, {})
+keymap.set("n", "<leader>fw", require("telescope.builtin").grep_string, { desc = "Find string under cursor in cwd" })
+keymap.set("n", "<leader>fk", require("telescope.builtin").keymaps, { desc = "[S]earch [K]eymaps" })
+keymap.set("n", "<leader>fs", require("telescope.builtin").builtin, { desc = "[F]ind [S]elect Telescope" })
+keymap.set("n", "<leader>f.", require("telescope.builtin").oldfiles, { desc = "[F]ind Recent Files ('.' for repeat)" })
+keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
+keymap.set("n", "<leader>fm", function()
 	require("telescope.builtin").treesitter({ default_text = ":method:" })
 end)
 -- Slightly advanced example of overriding default behavior and theme
@@ -169,14 +169,6 @@ keymap.set("n", "<leader>dh", "<cmd>Telescope dap commands<cr>")
 keymap.set("n", "<leader>de", function()
 	require("telescope.builtin").diagnostics({ default_text = ":E:" })
 end)
-
--- vim-test
-keymap.set("n", "<leader>t", ":TestNearest<CR>")
-keymap.set("n", "<leader>T", ":TestFile<CR>")
-keymap.set("n", "<leader>a", ":TestSuite<CR>")
-keymap.set("n", "<leader>l", ":TestLast<CR>")
-keymap.set("n", "<leader>g", ":TestVisit<CR>")
-vim.cmd("let test#strategy = 'vimux'")
 
 -- oil
 keymap.set("n", "-", "<cmd>Oil<cr>")
