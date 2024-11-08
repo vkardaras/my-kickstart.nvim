@@ -23,6 +23,7 @@ return {
 			"bash",
 			"lua",
 			"vim",
+			"sql",
 		},
 	},
 	config = function(_, opts)
