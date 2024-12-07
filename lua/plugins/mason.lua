@@ -29,6 +29,7 @@ return {
 			ensure_installed = {
 				"lua_ls",
 				"jdtls",
+				"pyright",
 			},
 		})
 		mason_tool_installer.setup({
@@ -38,6 +39,12 @@ return {
 				"prettier", -- prettier formatter
 				"stylua", -- lua formatter
 				"eslint_d", -- js linter
+				"black",
+				"debugpy",
+				"flake8",
+				"isort",
+				"mypy",
+				"pylint",
 			},
 		})
 		-- There is an issue with mason-tools-installer running with VeryLazy, since it triggers on VimEnter which has already occurred prior to this plugin loading so we need to call install explicitly
