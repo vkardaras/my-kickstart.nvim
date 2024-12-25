@@ -4,6 +4,11 @@ vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,
 
 local opt = vim.opt
 
+-- Encoding
+vim.scriptencoding = "utf-8"
+opt.encoding = "utf-8"
+opt.fileencoding = "utf-8"
+
 -- Left column and similar settings
 opt.number = true -- display line numbers
 opt.relativenumber = true -- display relative line numbers
@@ -18,6 +23,7 @@ opt.expandtab = true -- convert tabs to spaces
 opt.shiftwidth = 2 -- number of spaces inserted for each indentation level
 opt.tabstop = 2 -- number of spaces inserted for tab character
 opt.softtabstop = 2 -- number of spaces inserted for <Tab> key
+opt.autoindent = true -- enable smart indentation
 opt.smartindent = true -- enable smart indentation
 opt.breakindent = true -- enable line breaking indentation
 
@@ -38,6 +44,8 @@ opt.timeoutlen = 1000 -- set timeout for mapped sequences
 opt.updatetime = 100 -- set faster completion
 opt.writebackup = false -- prevent editing of files being edited elsewhere
 opt.cursorline = true -- highlight current line
+opt.showcmd = true
+opt.backspace = { "start", "eol", "indent" }
 
 -- Searching Behaviors
 opt.hlsearch = true -- highlight all matches in search
