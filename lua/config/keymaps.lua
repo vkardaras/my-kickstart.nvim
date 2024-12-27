@@ -96,6 +96,16 @@ keymap.set("n", "<leader>s/", function()
 	})
 end, { desc = "[S]earch [/] in Open Files" })
 
+-- Harpoon
+local harpoon = require("harpoon")
+harpoon:setup()
+keymap.set("n", "<leader>a", function()
+	harpoon:list():add()
+end)
+keymap.set("n", "<C-e>", function()
+	harpoon.ui:toggle_quick_menu(harpoon:list())
+end)
+
 -- Shortcut for searching your Neovim configuration files
 keymap.set("n", "<leader>sn", function()
 	-- require("telescope.builtin").find_files({ cwd = vim.fn.stdpath("config") })
@@ -192,6 +202,10 @@ end)
 
 -- oil
 keymap.set("n", "-", "<cmd>Oil<cr>")
+
+-- markdown-preview
+keymap.set("n", "<leader>mdn", ":MarkdownPreview<CR>")
+keymap.set("n", "<leader>mds", ":MarkdownPreviewStop<CR>")
 
 -- trouble
 keymap.set("n", "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", { desc = "Open trouble workspace diagnostics" })

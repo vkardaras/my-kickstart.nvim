@@ -30,6 +30,7 @@ return {
 				"lua_ls",
 				"jdtls",
 				"pyright",
+				"ts_ls",
 			},
 		})
 		mason_tool_installer.setup({
