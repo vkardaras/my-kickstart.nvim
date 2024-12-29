@@ -234,3 +234,8 @@ keymap.set({ "n", "v" }, "<leader>mp", function()
 		timeout_ms = 1000,
 	})
 end, { desc = "Format file or range (in visual mode)" })
+
+-- linting
+keymap.set("n", "<leader>l", function()
+	require("lint").try_lint()
+end, { desc = "Trigger linting for current file" })
