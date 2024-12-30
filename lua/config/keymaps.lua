@@ -49,7 +49,9 @@ keymap.set("n", "<leader>cp", "[c") -- previous diff hunk
 keymap.set("n", "<leader>qo", ":copen<CR>") -- open quickfix list
 keymap.set("n", "<leader>qf", ":cfirst<CR>") -- jump to first quickfix list item
 keymap.set("n", "<leader>qn", ":cnext<CR>") -- jump to next quickfix list item
+keymap.set("n", "<M-j>", ":cnext<CR>") -- jump to next quickfix list item
 keymap.set("n", "<leader>qp", ":cprev<CR>") -- jump to prev quickfix list item
+keymap.set("n", "<M-k>", ":cprev<CR>") -- jump to prev quickfix list item
 keymap.set("n", "<leader>ql", ":clast<CR>") -- jump to last quickfix list item
 keymap.set("n", "<leader>qc", ":cclose<CR>") -- close quickfix list
 
@@ -79,6 +81,16 @@ keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
 keymap.set("n", "<leader>fm", function()
 	require("telescope.builtin").treesitter({ default_text = ":method:" })
 end)
+keymap.set("n", "<leader>en", function()
+	require("telescope.builtin").find_files({
+		cwd = vim.fn.stdpath("config"),
+	})
+end, { desc = "Search inside neovim config directory" })
+keymap.set("n", "<leader>ep", function()
+	require("telescope.builtin").find_files({
+		cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy"),
+	})
+end, { desc = "Search inside lazy plugins directory" })
 -- Slightly advanced example of overriding default behavior and theme
 -- keymap.set("n", "<leader>/", function()
 -- 	-- You can pass additional configuration to Telescope to change the theme, layout, etc.

@@ -43,9 +43,14 @@ return {
 						},
 					},
 				},
+				extensions = {
+					fzf = {},
+				},
 			})
 
 			telescope.load_extension("fzf")
+
+			require("config.telescope.multigrep").setup()
 		end,
 	},
 	{
