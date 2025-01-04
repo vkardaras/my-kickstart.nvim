@@ -251,3 +251,18 @@ end, { desc = "Format file or range (in visual mode)" })
 keymap.set("n", "<leader>l", function()
 	require("lint").try_lint()
 end, { desc = "Trigger linting for current file" })
+
+-- terminal
+local job_id = 0
+keymap.set("n", "<leader>st", function()
+	vim.cmd.vnew()
+	vim.cmd.term()
+	vim.cmd.wincmd("J")
+	vim.api.nvim_win_set_height(0, 15)
+
+	job_id = vim.bo.channel
+end)
+
+keymap.set("n", "<leader>example", function()
+	vim.fn.chansend(job_id, { "ls -al\r\n" })
+end)
