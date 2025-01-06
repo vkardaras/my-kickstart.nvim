@@ -4,7 +4,7 @@ return {
 	build = ":TSUpdate",
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter-textobjects",
-		"windwp/nvim-ts-autotag",
+		-- "windwp/nvim-ts-autotag",
 	},
 	opts = {
 		highlight = {
@@ -12,9 +12,9 @@ return {
 		},
 		indent = { enable = true },
 		auto_install = true, -- automatically install syntax support when entering new file type buffer
-		autotag = {
-			enable = true,
-		},
+		-- autotag = {
+		-- 	enable = true,
+		-- },
 		ensure_installed = {
 			"json",
 			"javascript",
@@ -22,6 +22,7 @@ return {
 			"tsx",
 			"yaml",
 			"html",
+			"xml",
 			"css",
 			"prisma",
 			"markdown",
