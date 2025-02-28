@@ -18,10 +18,10 @@ keymap.set("n", "<leader>sx", ":close<CR>") -- close split window
 keymap.set("n", "<leader>o", "<C-w>o") -- close all but the current window
 
 -- Better window navigation
-keymap.set("n", "<C-h>", ":wincmd h<cr>", { desc = "Move focus to the left window" })
-keymap.set("n", "<C-l>", ":wincmd l<cr>", { desc = "Move focus to the right window" })
-keymap.set("n", "<C-j>", ":wincmd j<cr>", { desc = "Move focus to the lower window" })
-keymap.set("n", "<C-k>", ":wincmd k<cr>", { desc = "Move focus to the upper window" })
+keymap.set("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>", { desc = "Move focus to the left window" })
+keymap.set("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>", { desc = "Move focus to the right window" })
+keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>", { desc = "Move focus to the lower window" })
+keymap.set("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>", { desc = "Move focus to the upper window" })
 
 -- Tab management
 keymap.set("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
